@@ -1,0 +1,28 @@
+# Rider / Visual Studio
+.idea/
+.vs/
+.vscode/
+
+# Build
+bin/
+obj/
+
+# Pliki tymczasowe projektu
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Pliki logów
+*.log
+
+# Pliki kompilacji .NET
+*.dll
+*.exe
+*.pdb
+*.cache
+*.pidb
+
+# Ustawienia systemu
+Thumbs.db
+.DS_Store
