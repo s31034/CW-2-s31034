@@ -12,8 +12,8 @@ public class RefrigeratedContainer : Container
         { "mięso", -15.0 }
     };
 
-    public RefrigeratedContainer(double emptyWeight, double maxLoadWeight, string productType, double temperature)
-        : base("C", emptyWeight, maxLoadWeight)
+    public RefrigeratedContainer(double emptyWeight, double maxLoadWeight, string productType, double temperature, double heigth, double depth)
+        : base("C", emptyWeight, maxLoadWeight, heigth, depth)
     {
         if (!RequiredTemperatures.ContainsKey(productType.ToLower()))
         {

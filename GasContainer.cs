@@ -5,8 +5,8 @@ public class GasContainer : Container, IHazardNotifier
     private const double MaxFillPercentage = 0.05;
     public double Pressure { get; }
 
-    public GasContainer(double emptyWeight, double maxLoadWeight, double pressure)
-        : base("G", emptyWeight, maxLoadWeight)
+    public GasContainer(double emptyWeight, double maxLoadWeight, double pressure, double heigth, double depth)
+        : base("G", emptyWeight, maxLoadWeight, heigth, depth)
     {
         Pressure = pressure;
     }

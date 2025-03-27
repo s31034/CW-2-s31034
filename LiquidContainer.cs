@@ -6,8 +6,8 @@ public class LiquidContainer : Container, IHazardNotifier
     private const double MaxFillPercentageSafe = 0.9;
     public bool IsDangerous { get; }
 
-    public LiquidContainer(double emptyWeight, double maxLoadWeight, bool isDangerous)
-        : base("L", emptyWeight, maxLoadWeight)
+    public LiquidContainer(double emptyWeight, double maxLoadWeight, bool isDangerous, double heigth, double depth)
+        : base("L", emptyWeight, maxLoadWeight, heigth,depth)
     {
         IsDangerous = isDangerous;
     }

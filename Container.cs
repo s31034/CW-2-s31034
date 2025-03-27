@@ -11,14 +11,20 @@ public abstract class Container
     public double MaxLoadWeight { get;  set; }
     
     public double CurrentLoadWeight { get;  set; }
+    
+    public double Heigth {get; set; }
+    
+    public double Depth {get; set; }
 
-    public Container(string prefix, double emptyWeight, double maxLoadWeight)
+    public Container(string prefix, double emptyWeight, double maxLoadWeight, double heigth ,double depth)
     {
         _counter++;
         SerialNumber = $"KON-{prefix}-{_counter}"; // ustawienia numeru seryjnego 
         EmptyWeight = emptyWeight;
         MaxLoadWeight = maxLoadWeight;
         CurrentLoadWeight = 0;
+        Heigth = heigth;
+        Depth = depth;
     }
 
     public virtual void LoadCargo(double weight)

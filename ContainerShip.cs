@@ -58,6 +58,27 @@ public class ContainerShip
         targetShip.LoadContainer(container);
         Console.WriteLine($"Przeniesiono kontener {serialNumber} ze statku {Name} na statek {targetShip.Name}.");
     }
+    
+    public void ReplaceContainer(string serialNumber, Container newContainer)
+    {
+        var existingContainer = Containers.FirstOrDefault(c => c.SerialNumber == serialNumber);
+        if (existingContainer == null)
+        {
+            throw new InvalidOperationException($"Kontener {serialNumber} nie znajduje się na statku {Name}.");
+        }
+
+        // Sprawdzamy, czy można załadować nowy kontener
+        double totalWeight = Containers.Sum(c => c.EmptyWeight + c.CurrentLoadWeight);
+        if (totalWeight + newContainer.EmptyWeight + newContainer.CurrentLoadWeight > MaxWeight)
+        {
+            throw new InvalidOperationException($"Przekroczono maksymalną wagę ładunku dla statku {Name} przy dodawaniu nowego kontenera.");
+        }
+
+        // Usuwamy stary kontener, a następnie dodajemy nowy
+        Containers.Remove(existingContainer);
+        Containers.Add(newContainer);
+        Console.WriteLine($"Zastąpiono kontener {serialNumber} nowym kontenerem {newContainer.SerialNumber} na statku {Name}.");
+    }
     public void PrintContainers()
     {
         int counter = 1;
@@ -92,5 +113,6 @@ public class ContainerShip
             container.DisplayInfo();
         }
     }
+    
 
 }

@@ -11,10 +11,10 @@ public class Program
                 ContainerShip ship2 = new ContainerShip("Sea Voyager", 20, 8, 400);
 
                 Console.WriteLine("\n===== Tworzenie kontenerów =====");
-                GasContainer gasContainer = new GasContainer(2000, 10000, 5);
-                LiquidContainer liquidContainerSafe = new LiquidContainer(1500, 8000, false);
-                LiquidContainer liquidContainerDangerous = new LiquidContainer(1600, 7000, true);
-                RefrigeratedContainer refrigeratedContainer = new RefrigeratedContainer(1800, 5000, "mięso", -18);
+                GasContainer gasContainer = new GasContainer(2000, 10000, 5, 30,40);
+                LiquidContainer liquidContainerSafe = new LiquidContainer(1500, 8000, false,50,20);
+                LiquidContainer liquidContainerDangerous = new LiquidContainer(1600, 7000, true, 20,40);
+                RefrigeratedContainer refrigeratedContainer = new RefrigeratedContainer(1800, 5000, "mięso", -18,40,20);
 
                 Console.WriteLine("\n===== Ładowanie ładunku do kontenerów =====");
                 gasContainer.LoadCargo(400);
@@ -43,9 +43,14 @@ public class Program
 
                 ship2.DisplayInfo();
 
-                Console.WriteLine("\n===== Wyładowanie kontenera =====");
-                ship2.UnloadContainer(gasContainer.SerialNumber);
+                Console.WriteLine("\n===== Wyładowanie kontenera =====\n");
+                ship1.UnloadContainer(refrigeratedContainer.SerialNumber);
 
+                
+                GasContainer newGasContainer = new GasContainer(1000, 10000, 10, 20,10); // Nowy kontener
+                Console.WriteLine("Dodano nowy kontener");
+                ship2.ReplaceContainer(gasContainer.SerialNumber, newGasContainer);
+                
                 Console.WriteLine("\n===== Informacje końcowe =====");
                 ship1.PrintContainers();
                 Console.WriteLine();
